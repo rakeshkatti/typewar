@@ -1,4 +1,5 @@
-const GOOGLE_CLIENT_ID = "53805206239-fliiinrnumott7bjt06tfkuscl2cn756.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "53805206239-1a6jg3a737m8hrh765ea2rl8ihihl78i.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "3ClJxWpg9RibKovnmE0oMXNy";
 
 function initializeGoogleAuth() {
     window.onGoogleYoloLoad = (googleyolo) => {
@@ -15,7 +16,7 @@ function initializeGoogleAuth() {
             ],
             context: "continue"
         });
-        
+
         authPromise.then((credential) => {
             if (credential.id) {
                 localStorage.setItem("username", credential.id);

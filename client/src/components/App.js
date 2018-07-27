@@ -5,26 +5,34 @@ import { Game } from "./Game";
 import { fetchAllWords } from '../actions';
 import {connect} from "react-redux";
 
+function signOut() {
+    // var auth2 = gapi.auth2.getAuthInstance();
+    // auth2.signOut().then(function () {
+    //     console.log('User signed out.');
+    // });
+}
 class App extends Component {
     constructor(props) {
         super(props);
         this.startGame = this.startGame.bind(this);
     }
-    
+
     startGame() {
         let socket = getSocket();
         socket.emit('start-game', {
             userId: localStorage.getItem("username")
         });
     }
-    
+
     render() {
         return (
             <div className="App">
             <header className="App-header">
-            <h1 className="App-title">..</h1>
+            <h1 className="App-title">typewar</h1>
             </header>
-            <button onClick={this.props.startGame}>ss</button>
+            <div className="g-signin2" data-onsuccess="onSignIn"></div>
+            <a href="#" onclick={signOut}>Sign out</a>
+            <button onClick={this.props.startGame}>start game</button>
             <Game />
             </div>
         );
